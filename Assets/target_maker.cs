@@ -48,6 +48,8 @@ public class target_maker : MonoBehaviour
     {
 
         //スピード
+        //SaluvajiSpeed=;
+        //transformPosition.
         //戻す
         //回収
         //if(GetMet.Pos==Get.Pos)

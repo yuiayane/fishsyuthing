@@ -1,7 +1,23 @@
 using UnityEngine;
 
+public enum Size
+{
+    Monstar,
+    Big,
+    Midium,
+    Nomal,
+    Smoale,
+    Minimamu
+
+}
 public enum SizePoint
 {
+    MonstarPoint,
+    BigPoint,
+    Midiumpoint,
+    NomalPoint,
+    SmoalePoint,
+    MinimamuPoint
 }
 
 [CreateAssetMenu(fileName = "FishData", menuName = "Scriptable Objects/FishData")]
