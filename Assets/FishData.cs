@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum Size
@@ -10,25 +12,31 @@ public enum Size
     Minimamu
 
 }
-public enum SizePoint
+public enum FishClass
+{ 
+    c_Greet,
+    c_Hipper,
+    c_Supper,
+    c_Nomal,
+    c_mini
+}
+[System.Serializable]
+public class SizeData
 {
-    MonstarPoint,
-    BigPoint,
-    Midiumpoint,
-    NomalPoint,
-    SmoalePoint,
-    MinimamuPoint
+    [SerializeField] public Size size;
+    [SerializeField] public float fishPoint;
 }
 
-[CreateAssetMenu(fileName = "FishData", menuName = "Scriptable Objects/FishData")]
+[CreateAssetMenu(fileName = "FishData", menuName = "Scriptable Objects/FishData/Data")]
 public class FishData : ScriptableObject
 {
-
+    [SerializeField] private string FishName;
+    [SerializeField] private FishClass f_class;
     [SerializeField] private float MaxSize;
     [SerializeField] private float MinSize;
-    [SerializeField] private float Size;
-    [SerializeField] private float FishPoint;
-    [SerializeField] private SizePoint SizelPoint;
     [SerializeField] private float SizelDistance;
 
+    public List<SizeData> SizePointList = new();
+
+  
 }

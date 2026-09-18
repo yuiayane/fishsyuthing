@@ -10,11 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad4151472b4a80f40b9e139825d16b65, type: 3}
-  m_Name: FishData
+  m_Name: angler
   m_EditorClassIdentifier: Assembly-CSharp::FishData
-  MaxSize: 0
-  MinSize: 0
-  Size: 0
-  FishPoint: 0
-  SizelPoint: 0
-  SizelDistance: 0
+  FishName: angler
+  f_class: 1
+  MaxSize: 200
+  MinSize: 150
+  SizelDistance: 3.23
+  SizePointList:
+  - size: 0
+    fishPoint: 400
+  - size: 1
+    fishPoint: 300
+  - size: 2
+    fishPoint: 250
+  - size: 3
+    fishPoint: 200
+  - size: 4
+    fishPoint: 150
+  - size: 5
+    fishPoint: 100
