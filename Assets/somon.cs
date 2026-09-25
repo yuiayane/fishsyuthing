@@ -1,6 +1,7 @@
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-public class FishPool : MonoBehaviour
+public class f_Sammon : MonoBehaviour
 {
     [SerializeField] private float samonEria = 15f;
 
@@ -17,20 +18,27 @@ public class FishPool : MonoBehaviour
 
     Vector3 SpawnPoint()
     {
-        float x = Random.Range(-50f, 50f);
+        float x = Random.Range(-45f, 45f);
 
-        float z = Random.Range(-50f, 50f);
-        switch (Random.Range(0, 4))
-        {
+        float z = Random.Range(-45f, 45f);
+        //switch (Random.Range(0, 5))
+        //{
 
-            case 0: x = -50f; break;
+        //    case 0: x = -45f; break;
 
-            case 1: x = 50f; break;
-            case 2: z = -50f; break;
-            case 3: z = 50f; break;
-        }
+        //    case 1: x = 45f; break;
+        //    case 2: z = -45f; break;
+        //    case 3: z = 45f; break;
+        //        default:
+        //        break;
+        //}
 
         return new Vector3(x, 0, z);
+    }
+    public void SpawnFish(Vector3 pos)
+    {
+        pool.GetObject(pos);
+
     }
     void Update()
     {
@@ -39,7 +47,8 @@ public class FishPool : MonoBehaviour
         if (timer >= spawnInterval)
         {
             timer = 0f;
-            //SpawnFish();
+            Vector3 pos=SpawnPoint();
+            SpawnFish(pos);
         }
     }
     public void Spotn(Vector3 pod, int dammonFish)

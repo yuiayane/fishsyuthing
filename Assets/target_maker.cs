@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.UI;
 
 
 public class target_maker : MonoBehaviour
 {
+    [SerializeField] private int NetCount;
+    [SerializeField] private int ShotCount;
     //[SerializeField] private Canvas canvas;
     [SerializeField] private GameObject marke;
     //[SerializeField] private RectTransform marke;
@@ -14,21 +15,24 @@ public class target_maker : MonoBehaviour
     [SerializeField] private float NetSpeed;
     [SerializeField] private List<GameObject> Net = new();
 
+    private List <FishData> GetFishList = new ();
+
     public Vector3 TragetMoker()
     {
         Vector3 pos =transform.position;
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 20f;
+        mousePos.z = 10f;
         //mousePos.x= 
         Vector3 tragetPos = Camera.main.ScreenToWorldPoint(new Vector3( mousePos.x, mousePos.y,mousePos.z));
        
         marke.transform.position = tragetPos;
-        if (Input.GetKeyDown(KeyCode.DownArrow) /*&& Net[1]==false*/)
+        if (Input.GetKeyDown(KeyCode.UpArrow) /*&& NetCount > 0*/ /*&& Net[1]==false*/)
         {
             Vector3 pointPos = marke.transform.position;
+            NetCount -= 1;
             Shot(pointPos);
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) /*&& Net[1]==true*/)
+        else if (Input.GetKeyDown(KeyCode.DownArrow) /*&& ShotCount<NetCount*/ /*&& Net[1]==true*/)
         {
             Saluvaji();
 
@@ -39,7 +43,7 @@ public class target_maker : MonoBehaviour
     public void Shot(Vector3 Pos)
     {
         Net[1].gameObject.SetActive(true);
-        Net[1].transform.position = new Vector3(Pos.x,Pos.z,Pos.y);
+        Net[1].transform.position = new Vector3(Pos.x,Pos.y,Pos.z);
             //Vector3.Lerp(Pos, worldPos, NetSpeed * Time.deltaTime);
         marke.gameObject.SetActive(false);
     }
@@ -53,22 +57,28 @@ public class target_maker : MonoBehaviour
 
     }
     //スピード
+    public void NetRturn()
+    {
+        gameObject.SetActive(false);
 
+        //魚の数を受け取るデータを受け取る
+        //if(GetFhisList==Null) return;
+
+        //網の中の魚の大きさと数を分ける
+        //for(int i = 0; i <fishCount; i++)
+        //{
+
+        //ポイント加算
+        //SunmFishPoint=GetFishPoint+FishPoint;
+        //return;
+        //}
+
+    }
     //戻す
     //if(GetMet.Pos==Get.Pos)
     //{
 
-    //魚の数を受け取るデータを受け取る
-    //if(GetFhisList==Null) return;
 
-    //網の中の魚の大きさと数を分ける
-    //for(int i = 0; i <fishCount; i++)
-    //{
-
-    //ポイント加算
-    //SunmFishPoint=GetFishPoint+FishPoint;
-    //return;
-    //}
     //MaxFishCount +=SumFishPoint
 
     //網をfalesにする
