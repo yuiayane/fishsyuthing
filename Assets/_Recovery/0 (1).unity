@@ -257,7 +257,6 @@ GameObject:
   - component: {fileID: 181518598}
   - component: {fileID: 181518600}
   - component: {fileID: 181518599}
-  - component: {fileID: 181518601}
   m_Layer: 5
   m_Name: Points
   m_TagString: Untagged
@@ -306,8 +305,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 31e89f258a9dc0149ab7f5cba29c44c5, type: 2}
-  m_sharedMaterial: {fileID: 1286859718650417038, guid: 31e89f258a9dc0149ab7f5cba29c44c5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -384,19 +383,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181518597}
   m_CullTransparentMesh: 1
---- !u!114 &181518601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 181518597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5890bccff6f5a224cbf03e58c38748a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::counter
-  PointText: {fileID: 0}
 --- !u!1 &182936361
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,7 +558,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 431379710}
-  - component: {fileID: 431379711}
   m_Layer: 0
   m_Name: FishPoints
   m_TagString: Untagged
@@ -596,19 +581,6 @@ Transform:
   - {fileID: 825826318}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &431379711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431379709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5890bccff6f5a224cbf03e58c38748a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::counter
-  PointText: {fileID: 0}
 --- !u!1 &461933724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,7 +1120,6 @@ GameObject:
   - component: {fileID: 1293412813}
   - component: {fileID: 1293412812}
   - component: {fileID: 1293412811}
-  - component: {fileID: 1293412815}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1249,19 +1220,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1293412815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1293412810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5890bccff6f5a224cbf03e58c38748a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::counter
-  PointText: {fileID: 0}
 --- !u!1 &1723790309
 GameObject:
   m_ObjectHideFlags: 0

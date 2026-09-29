@@ -5,7 +5,8 @@ public class SuthingSistem : MonoBehaviour
 {
     void Start()
     {
-        
+ 
+
     }
 
 

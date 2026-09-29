@@ -18,9 +18,9 @@ public class f_Sammon : MonoBehaviour
 
     Vector3 SpawnPoint()
     {
-        float x = Random.Range(-45f, 45f);
+        float x = Random.Range(-30f, 30f);
 
-        float z = Random.Range(-45f, 45f);
+        float z = Random.Range(-30f, 30f);
         //switch (Random.Range(0, 5))
         //{
 

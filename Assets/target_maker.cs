@@ -15,13 +15,14 @@ public class target_maker : MonoBehaviour
     [SerializeField] private float NetSpeed;
     [SerializeField] private List<GameObject> Net = new();
 
+    
     private List <FishData> GetFishList = new ();
 
     public Vector3 TragetMoker()
     {
         Vector3 pos =transform.position;
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 10f;
+        mousePos.z = 10;
         //mousePos.x= 
         Vector3 tragetPos = Camera.main.ScreenToWorldPoint(new Vector3( mousePos.x, mousePos.y,mousePos.z));
        
@@ -43,8 +44,8 @@ public class target_maker : MonoBehaviour
     public void Shot(Vector3 Pos)
     {
         Net[1].gameObject.SetActive(true);
-        Net[1].transform.position = new Vector3(Pos.x,Pos.y,Pos.z);
-            //Vector3.Lerp(Pos, worldPos, NetSpeed * Time.deltaTime);
+        Net[1].transform.position = new Vector3(Pos.x,5,Pos.z);
+         //Net[1].transform.position= Vector3.Lerp(Pos, mousePos, NetSpeed * Time.deltaTime);
         marke.gameObject.SetActive(false);
     }
     public void Saluvaji()
