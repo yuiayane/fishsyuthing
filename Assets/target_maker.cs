@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class target_maker : MonoBehaviour
 {
-    [SerializeField] private int NetCount;
+    //[SerializeField] private int NetCount;
     [SerializeField] private int ShotCount;
     //[SerializeField] private Canvas canvas;
     [SerializeField] private GameObject marke;
@@ -15,10 +15,12 @@ public class target_maker : MonoBehaviour
     [SerializeField] private float NetSpeed;
     [SerializeField] private List<GameObject> Net = new();
 
-    
+    float FishCount;
     private List <FishData> GetFishList = new ();
 
-    public Vector3 TragetMoker()
+    public object SummonFishPoint { get; private set; }
+
+    public void TragetMoker()
     {
         Vector3 pos =transform.position;
         Vector3 mousePos = Input.mousePosition;
@@ -30,28 +32,30 @@ public class target_maker : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) /*&& NetCount > 0*/ /*&& Net[1]==false*/)
         {
             Vector3 pointPos = marke.transform.position;
-            NetCount -= 1;
-            Shot(pointPos);
+            //NetCount -= 1;
+            Shot(mousePos);
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow) /*&& ShotCount<NetCount*/ /*&& Net[1]==true*/)
         {
-            Saluvaji();
+            Saluvaji(Net[1].transform.position);
 
         }
-        return mousePos;
+       
 
     }
     public void Shot(Vector3 Pos)
     {
+        
         Net[1].gameObject.SetActive(true);
-        Net[1].transform.position = new Vector3(Pos.x,5,Pos.z);
-         //Net[1].transform.position= Vector3.Lerp(Pos, mousePos, NetSpeed * Time.deltaTime);
+        Net[1].transform.position = new Vector3(Pos.x,10,Pos.z);
+        //Net[1].transform.position= Vector3.Lerp(Pos, , NetSpeed * Time.deltaTime);
         marke.gameObject.SetActive(false);
     }
-    public void Saluvaji()
+    public void Saluvaji(Vector3 NetPos )
     {
         float SaluvajiSpeed = 10f;
-        //Net[1].transform.position = Vector3.Lerp(NetPos, worldPos, SaluvajiSpeed * Time.deltaTime);
+        Vector3 direcshon= new Vector3(0, 0, 0 );
+        Net[1].transform.position = Vector3.Lerp(direcshon, NetPos, SaluvajiSpeed * Time.deltaTime);
         Net[1].gameObject.SetActive(false);
         marke.gameObject.SetActive(true);
         //回収
@@ -63,16 +67,28 @@ public class target_maker : MonoBehaviour
         gameObject.SetActive(false);
 
         //魚の数を受け取るデータを受け取る
-        //if(GetFhisList==Null) return;
+        if(GetFishList==null) return;
 
         //網の中の魚の大きさと数を分ける
-        //for(int i = 0; i <fishCount; i++)
-        //{
+        for(int i = 0; i <FishCount; i++)
+        {
+            if(FishCount>0)
+            {
+                //魚の大きさを分ける
+                //魚のポイントを分ける
+                //魚の数を分ける
+                //counter.CountSystem(data.FishPoint);
+                FishCount -= 1;
+            }
+            else
+            {
+                FishCount=0;
+                return;
+            }
+                //ポイント加算
+                //SunmFishPoint=GetFishPoint+FishPoint;
 
-        //ポイント加算
-        //SunmFishPoint=GetFishPoint+FishPoint;
-        //return;
-        //}
+        }
 
     }
     //戻す

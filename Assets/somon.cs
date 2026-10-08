@@ -10,12 +10,7 @@ public class f_Sammon : MonoBehaviour
 
     float timer;
     public FishPool pool;
-    //Fish fish = pool.Get();
-
-    //pool.Release(fish);
-    //fish.transform.position = SpawnPoint();
-    //fish.SetActive(true);
-
+    
     Vector3 SpawnPoint()
     {
         float x = Random.Range(-30f, 30f);

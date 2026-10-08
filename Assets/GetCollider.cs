@@ -37,7 +37,9 @@ public class GetCollider : MonoBehaviour
                 float hitArea = CalculateOverlapRatio(FishGetCollider, fishCollider);
                 if (hitArea >= 0.8)
                 {
-                    Debug.Log($"{fishCollider.name}をゲット！");
+                    Debug.Log($"Get");
+                    //Debug.Log($"{fish.name}");
+                    //Debug.Log($"{fishCollider.name}をゲット！");
                     FishData fish = FishGetCollider.GetComponent<FishData>();
                     if (fish != null)
                     {
@@ -47,9 +49,6 @@ public class GetCollider : MonoBehaviour
                 Vector3 direction = GetComponent<Collider>().transform.position - transform.position;
                 float distanceSqr = direction.sqrMagnitude;
                 float totalTadiusSqr = (radius1 + radius2) * (radius1 + radius2);
-
-            
-
             }
         }
     }
@@ -78,8 +77,16 @@ public class GetCollider : MonoBehaviour
         //        break;
 
         }
-        //GetFishList.AddRange(data.);
-        // FishPool.ReturnObject(fish.object);
+        if(data.f_class== FishData.CreateInstance<FishData>().f_class)
+        {
+            return;
+            //GetFish fish = new GetFish();
+            //fish.name = data.fishName;
+            //fish.size = data.maxSize;
+            //GetFishList.Add(fish);
+        }
+        //GetFishList.AddRange();
+        //FishPool.ReturnObject(fish.object);
         //    foreach (FishData fish in Fishs)
         //    {
         //        if (fish.name == name)

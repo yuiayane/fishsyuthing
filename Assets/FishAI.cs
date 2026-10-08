@@ -7,7 +7,7 @@ public class FishMovement : MonoBehaviour
 {
     public float speed = 2.0f;          // 移動速度
     public float turnSpeed = 0.05f;     // 曲がりやすさ
-    public Vector2 swimArea = new Vector2(8f, 4.5f); // 泳ぐ範囲（ワールド座標）
+    public Vector3 swimArea = new Vector3(8f, 4.5f, 8f); // 泳ぐ範囲（ワールド座標）
 
     private float angle;                // 現在の向き（ラジアン）
     private float wanderTimer;          // ランダム方向変更用タイマー
@@ -40,14 +40,14 @@ public class FishMovement : MonoBehaviour
         // 移動
         Vector3 pos = transform.position;
         pos.x += Mathf.Cos(angle) * speed * Time.deltaTime;
-        pos.y += Mathf.Sin(angle) * speed * Time.deltaTime;
+        pos.z += Mathf.Sin(angle) * speed * Time.deltaTime;
 
         // 範囲外で反射
         if (pos.x < -swimArea.x || pos.x > swimArea.x)
         {
             angle = Mathf.PI - angle;
         }
-        if (pos.y < -swimArea.y || pos.y > swimArea.y)
+        if (pos.z < -swimArea.z || pos.z > swimArea.z)
         {
             angle = -angle;
         }

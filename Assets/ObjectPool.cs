@@ -8,18 +8,19 @@ public class FishPool : MonoBehaviour
     [SerializeField]private List<GameObject> pool;
     private void Awake()
     {
-        //pool =new List<GameObject>();
+        pool =new List<GameObject>();
 
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject obj = pool[i];//Instantiate(pool[i]);
+            GameObject gameoabject = Instantiate(pool[i]);
+            GameObject obj = gameoabject;
             obj.SetActive(false);
             pool.Add(obj);
         }
     }
     public GameObject GetObject(Vector3 pos)
     {
-        foreach(GameObject obj in pool)
+        foreach(var obj in pool)
         {
             if(!obj.activeInHierarchy)
             {
@@ -33,7 +34,7 @@ public class FishPool : MonoBehaviour
         //return newObj;
         return null;
     }
-    public void RetrunObject(GameObject obj)
+    public void ReturnObject(GameObject obj)
     {
         obj.gameObject.SetActive(false);
     }
