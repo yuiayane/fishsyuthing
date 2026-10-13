@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class FishPool : MonoBehaviour
 {
     //public GameObject Prefab;
@@ -29,9 +30,6 @@ public class FishPool : MonoBehaviour
                 return obj;
             }
         }
-        //GameObject newObj =Instantiate(Prefab);
-        //newObj.SetActive(true);
-        //return newObj;
         return null;
     }
     public void ReturnObject(GameObject obj)

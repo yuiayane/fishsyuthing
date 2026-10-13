@@ -16,18 +16,7 @@ public class f_Sammon : MonoBehaviour
         float x = Random.Range(-30f, 30f);
 
         float z = Random.Range(-30f, 30f);
-        //switch (Random.Range(0, 5))
-        //{
-
-        //    case 0: x = -45f; break;
-
-        //    case 1: x = 45f; break;
-        //    case 2: z = -45f; break;
-        //    case 3: z = 45f; break;
-        //        default:
-        //        break;
-        //}
-
+ 
         return new Vector3(x, 0, z);
     }
     public void SpawnFish(Vector3 pos)

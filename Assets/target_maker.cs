@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 
 
 public class target_maker : MonoBehaviour
 {
-    //[SerializeField] private int NetCount;
+    [SerializeField] private int NetCount;
     [SerializeField] private int ShotCount;
-    //[SerializeField] private Canvas canvas;
+    
     [SerializeField] private GameObject marke;
-    //[SerializeField] private RectTransform marke;
+    
     [SerializeField] private float followSpeed;
     
     [SerializeField] private float NetSpeed;
@@ -47,7 +48,7 @@ public class target_maker : MonoBehaviour
     {
         
         Net[1].gameObject.SetActive(true);
-        Net[1].transform.position = new Vector3(Pos.x,10,Pos.z);
+        Net[1].transform.position = new Vector3(Pos.x,Pos.y,Pos.z);
         //Net[1].transform.position= Vector3.Lerp(Pos, , NetSpeed * Time.deltaTime);
         marke.gameObject.SetActive(false);
     }
@@ -74,11 +75,19 @@ public class target_maker : MonoBehaviour
         {
             if(FishCount>0)
             {
-                //魚の大きさを分ける
-                //魚のポイントを分ける
-                //魚の数を分ける
-                //counter.CountSystem(data.FishPoint);
-                FishCount -= 1;
+                ////魚の大きさを分ける
+                //if (GetFish.Size == Data.name)
+                //{
+
+                //}
+                //else
+                //{
+                    
+                //}
+                    //魚のポイントを分ける
+                    //魚の数を分ける
+                    //counter.CountSystem(data.FishPoint);
+                    FishCount -= 1;
             }
             else
             {
@@ -86,7 +95,7 @@ public class target_maker : MonoBehaviour
                 return;
             }
                 //ポイント加算
-                //SunmFishPoint=GetFishPoint+FishPoint;
+             //SunmFishPoint=GetFishPoint+FishPoint;
 
         }
 

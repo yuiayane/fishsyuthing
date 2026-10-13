@@ -1,8 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
+
+public struct F_Data
+{
+    public string fishName;
+    public float size;
+    public float point;
+    public string f_class;
+}
 public class NetHitCollider
 {
     public float distance;
@@ -12,13 +18,16 @@ public class NetHitCollider
 public class GetFish
 {
     public string name;
-    private float size;
-    private float point;
+    public float size;
+    public float point;
+    public string s_Class;
 
 }
 
+
 public class GetCollider : MonoBehaviour
 {
+    FishPool fishPool;
     public Collider FishGetCollider;
     public int FishCount;
     public Transform[] Fishs;
@@ -26,25 +35,19 @@ public class GetCollider : MonoBehaviour
     public List<FishData> fishdataList = new();
     public float radius1 = 1.0f;
     public float radius2 = 1.0f;
-    public void HitCollider()
+    public void HitCollider(Collider other)
     {
         Collider[] hitColliders = Physics.OverlapBox(FishGetCollider.bounds.center,
             FishGetCollider.bounds.extents, FishGetCollider.transform.rotation);
-        foreach(Collider fishCollider in hitColliders)
+        foreach (Collider fishCollider in hitColliders)
         {
             if (fishCollider.GetComponent("Fish"))
             {
                 float hitArea = CalculateOverlapRatio(FishGetCollider, fishCollider);
                 if (hitArea >= 0.8)
                 {
-                    Debug.Log($"Get");
-                    //Debug.Log($"{fish.name}");
-                    //Debug.Log($"{fishCollider.name}ÇÉQÉbÉgÅI");
-                    FishData fish = FishGetCollider.GetComponent<FishData>();
-                    if (fish != null)
-                    {
-                        netHit(fish);
-                    }
+                    FishData fish = other.GetComponent<FishData>();
+                    //GetFish Fish = NetHit(fish, fishCollider);
                 }
                 Vector3 direction = GetComponent<Collider>().transform.position - transform.position;
                 float distanceSqr = direction.sqrMagnitude;
@@ -55,51 +58,47 @@ public class GetCollider : MonoBehaviour
     float CalculateOverlapRatio(Collider get, Collider fish)
     {
         Bounds getBounds = get.bounds;
-        Bounds fishBounds= fish.bounds;
-        if(!getBounds.Intersects(fish.bounds))
+        Bounds fishBounds = fish.bounds;
+        if (!getBounds.Intersects(fish.bounds))
             return 0.0f;
-        Bounds overlapBounds=new Bounds();
+        Bounds overlapBounds = new Bounds();
         overlapBounds.center = getBounds.center;
         overlapBounds.extents = getBounds.extents;
 
-        float overlapVolume = overlapBounds.size.x*overlapBounds.size.y*overlapBounds.size.z;
-        float fishVolume = fishBounds.size.x*fishBounds.size.y*fishBounds.size.z;
-        return overlapVolume/fishVolume;
+        float overlapVolume = overlapBounds.size.x * overlapBounds.size.y * overlapBounds.size.z;
+        float fishVolume = fishBounds.size.x * fishBounds.size.y * fishBounds.size.z;
+        return overlapVolume / fishVolume;
     }
-    public void netHit(FishData data)
+    public GetFish NetHit(F_Data data,Collider obuject)
     {
-        switch (data.f_class)
+        if(data.fishName == null)
         {
-        //    case c_Greet:
-        //        break;
-        //    case c_Hipeer
-        //:
-        //        break;
-
+            GetFish fish = new GetFish();
+            Debug.Log($"GetFishName:{fish.name}");
+            Debug.Log($"GetFishSize:{fish.size}");
+            Debug.Log($"GetFishPoint:{fish.point}");
+            Debug.Log($"GetFishClass:{fish.s_Class}");
+            GetFishList.Add(fish);
+            fishPool.ReturnObject(obuject.gameObject);
+            return fish;
         }
-        if(data.f_class== FishData.CreateInstance<FishData>().f_class)
-        {
-            return;
-            //GetFish fish = new GetFish();
-            //fish.name = data.fishName;
-            //fish.size = data.maxSize;
-            //GetFishList.Add(fish);
-        }
-        //GetFishList.AddRange();
-        //FishPool.ReturnObject(fish.object);
-        //    foreach (FishData fish in Fishs)
-        //    {
-        //        if (fish.name == name)
-        //        {
-        //            //    foreach () {
-        //            //            GetFishList.Add(fish.name,fish.size);
-
-        //            //GetFishList.AddRange(fishpoint);
-        //            //ObjectPool.RetrunObject();
-
-        //        } 
-        //}
-
+        return null;
     }
+
+    //FishPool.ReturnObject(fish.object);
+    //    foreach (FishData fish in Fishs)
+    //    {
+    //        if (fish.name == name)
+    //        {
+    //            //    foreach () {
+    //            //            GetFishList.Add(fish.name,fish.size);
+
+    //            //GetFishList.AddRange(fishpoint);
+    //            //ObjectPool.RetrunObject();
+
+    //        } 
+    //}
 
 }
+
+
