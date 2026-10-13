@@ -25,16 +25,15 @@ public class target_maker : MonoBehaviour
     {
         Vector3 pos =transform.position;
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 10;
-        //mousePos.x= 
-        Vector3 tragetPos = Camera.main.ScreenToWorldPoint(new Vector3( mousePos.x, mousePos.y,mousePos.z));
+
+        Vector3 tragetPos = Camera.main.ScreenToWorldPoint(new Vector3( mousePos.x, mousePos.y,10));
        
         marke.transform.position = tragetPos;
         if (Input.GetKeyDown(KeyCode.UpArrow) /*&& NetCount > 0*/ /*&& Net[1]==false*/)
         {
-            Vector3 pointPos = marke.transform.position;
+            Vector3 point = tragetPos ;
             //NetCount -= 1;
-            Shot(mousePos);
+            Shot(point);
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow) /*&& ShotCount<NetCount*/ /*&& Net[1]==true*/)
         {
@@ -48,6 +47,7 @@ public class target_maker : MonoBehaviour
     {
         
         Net[1].gameObject.SetActive(true);
+        //Net[1].transform.position = new Vector3(Pos.x,10,Pos.z);
         Net[1].transform.position = new Vector3(Pos.x,Pos.y,Pos.z);
         //Net[1].transform.position= Vector3.Lerp(Pos, , NetSpeed * Time.deltaTime);
         marke.gameObject.SetActive(false);

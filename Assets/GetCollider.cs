@@ -35,6 +35,19 @@ public class GetCollider : MonoBehaviour
     public List<FishData> fishdataList = new();
     public float radius1 = 1.0f;
     public float radius2 = 1.0f;
+   
+    void Start()
+    {
+        FishGetCollider = GetComponent<Collider>();
+    }
+    public void Update()
+    {if(FishGetCollider == null)
+        {
+            HitCollider(FishGetCollider);
+            return;
+        }
+
+    }
     public void HitCollider(Collider other)
     {
         Collider[] hitColliders = Physics.OverlapBox(FishGetCollider.bounds.center,

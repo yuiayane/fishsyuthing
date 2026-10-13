@@ -7,16 +7,14 @@ public class FishPool : MonoBehaviour
     //public GameObject Prefab;
     [SerializeField]public int poolSize;
     [SerializeField]private List<GameObject> pool;
+    //pool =new List<GameObject>();
     private void Awake()
     {
-        pool =new List<GameObject>();
-
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject gameoabject = Instantiate(pool[i]);
-            GameObject obj = gameoabject;
+            GameObject obj = Instantiate(pool[i]);
             obj.SetActive(false);
-            pool.Add(obj);
+            //pool.Add(obj);
         }
     }
     public GameObject GetObject(Vector3 pos)
