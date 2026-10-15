@@ -17,7 +17,7 @@ public class target_maker : MonoBehaviour
     [SerializeField] private List<GameObject> Net = new();
 
     float FishCount;
-    private List <FishData> GetFishList = new ();
+    private List <F_Data> GetFishList = new ();
 
     public object SummonFishPoint { get; private set; }
 
@@ -114,7 +114,7 @@ public class target_maker : MonoBehaviour
 
 
         TragetMoker();
-        
+       
 
 
     }

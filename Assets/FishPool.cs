@@ -6,7 +6,7 @@ public class FishPool : MonoBehaviour
 {
     //public GameObject Prefab;
     [SerializeField]public int poolSize;
-    [SerializeField]private List<GameObject> pool;
+    [SerializeField]public List<GameObject> pool;
     //pool =new List<GameObject>();
     private void Awake()
     {
