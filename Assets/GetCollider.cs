@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class NetHitCollider
-{
-    public float distance;
-    public float dir;
+//public class NetHitCollider
+//{
+//    public float distance;
+//    public float dir;
     
-}
+//}
 public class GetFish
 {
     public string name;
