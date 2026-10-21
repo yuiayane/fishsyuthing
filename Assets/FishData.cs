@@ -12,7 +12,7 @@
 
 //}
 //public enum FishClass
-//{ 
+//{
 //    c_Greet,
 //    c_Hipper,
 //    c_Supper,
@@ -27,7 +27,7 @@
 //}
 
 //[CreateAssetMenu(fileName = "FishData", menuName = "Scriptable Objects/FishData/Data")]
-//public class FishData : ScriptableObject
+//public class F_Data : ScriptableObject
 //{
 //    [SerializeField] private string FishName;
 //    [SerializeField] private FishClass F_Class;
@@ -36,50 +36,28 @@
 //    [SerializeField] private float SizelDistance;
 //    public List<SizeData> SizePointList = new();
 
-//    public string fishName {  get { return FishName; } }
+//    public string fishName { get { return FishName; } }
 //    public FishClass f_class { get { return F_Class; } }
 //    public float maxSize { get { return MaxSize; } }
 //    public float minSize { get { return MinSize; } }
-//     public SizeData fs_data { get { return SizePointList[0]; } }
-
-
+//    public SizeData fs_data { get { return SizePointList[0]; } }
 
 //}
-//public class Fish : MonoBehaviour
-//{
-//    public FishData data;
-//    public float size;
-//    public float point;
-//    public string f_class;
-//    private void Start()
-//    {
-//        size = Random.Range(data.minSize, data.maxSize);
-//        point = CalculatePoint(size);
-//        f_class = data.f_class.ToString();
-//    }
-//    private float CalculatePoint(float fishSize)
-//    {
-//        foreach (var sizeData in data.SizePointList)
-//        {
-//            if (fishSize >= sizeData.fishPoint)
-//            {
-//                return sizeData.fishPoint;
-//            }
-//        }
-//        return 0f; // Default point if no match found
-//    }
-//}
-
 using UnityEngine;
+
+public enum FishSize { Small, Medium, Large }
+
 [System.Serializable]
-public class F_Data
+public class FishData
 {
-    public string fishName;
-    public float size;
-    public float point;
-    public string f_class;
-}
-public class Fish:MonoBehaviour
-{
-    public F_Data data;
+    public FishSize size;
+    public Vector3 position;
+    public FishController source; // å≥ÇÃãõ(ïﬂälå„ÇÃçÌèúóp)
+
+    public FishData(FishSize size, Vector3 position, FishController source)
+    {
+        this.size = size;
+        this.position = position;
+        this.source = source;
+    }
 }
