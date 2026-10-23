@@ -16,7 +16,13 @@ public class GameManager : MonoBehaviour
     private int countS, countM, countL;
     private string message = "";
     private float messageTimer;
-
+    // UIから読み取る用
+    public int Score => score;
+    public float TimeLeft => timeLeft;
+    public int CountSmall => countS;
+    public int CountMedium => countM;
+    public int CountLarge => countL;
+    public string Message => messageTimer > 0f ? message : "";
     void Awake()
     {
         Instance = this;
@@ -36,7 +42,6 @@ public class GameManager : MonoBehaviour
     // FishGetから、DataListをまとめて渡される
     public void AddCatch(List<FishData> list)
     {
-        if (list.Count == 0) { Show("ミス…"); return; }
 
         int baseScore = 0;
         foreach (var d in list)
@@ -57,20 +62,14 @@ public class GameManager : MonoBehaviour
     }
 
     private void Show(string text) { message = text; messageTimer = 2f; }
-
-    void OnGUI()
+    public void Salvage(List<FishData> held)
     {
-        var big = new GUIStyle(GUI.skin.label) { fontSize = 28 };
-        GUI.Label(new Rect(20, 10, 400, 40), $"SCORE {score}", big);
-        GUI.Label(new Rect(20, 50, 400, 40), $"TIME {Mathf.CeilToInt(timeLeft)}", big);
+        GameManager.Instance.AddCatch(held);
 
-        if (messageTimer > 0f)
-            GUI.Label(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 20, 300, 40), message, big);
-
-        if (!isPlaying)
+        foreach (var d in held)
         {
-            GUI.Label(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 80, 400, 200),
-                $"FINISH!\nSCORE {score}\n小:{countS} 中:{countM} 大:{countL}", big);
+            FishPool.Instance.Return(d.source);
         }
     }
+  
 }
