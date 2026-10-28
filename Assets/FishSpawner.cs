@@ -7,11 +7,11 @@ public class FishSpawner : MonoBehaviour
     public float fishHeight = 0f;       // 魚が泳ぐ面の高さ
  
     public float spawnMargin = 1.5f;    // 画面の外側、どれだけ離れて出現するか
-    public float despawnMargin = 4f;    // 画面の外側、どこまで行ったら消すか
+    public float despawnMargin = 20f;    // 画面の外側、どこまで行ったら消すか
     public float angleRange = 30f;      // 進む方向のばらつき(度)
 
     // 大物ほど出にくい(小60% / 中30% / 大10%)
-    public float rateSmall = 0.6f, rateMedium = 0.3f;
+    public float rateSmall = 0.5f, rateMedium = 0.3f, rateLarge=0.2f ;
     [Header("出現タイミング")]
     [Range(0f, 10f)] public float startDelay = 1f;     // ゲーム開始から最初の1匹までの時間
     [Range(0f, 10f)] public float intervalMin = 0.3f;  // 次の魚が出るまでの最短時間
@@ -79,7 +79,7 @@ public class FishSpawner : MonoBehaviour
         float r = Random.value;
         FishSize size = r < rateSmall ? FishSize.Small
                       : r < rateSmall + rateMedium ? FishSize.Medium
-                      : FishSize.Large;
+                      : FishSize.Large ;
 
         // 画面外の四方向(上・下・左・右)からランダムに選ぶ
         Vector3 pos, baseDir;
